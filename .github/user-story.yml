@@ -1,0 +1,29 @@
+name: User Story
+description: Create a user story
+title: "[Story]: "
+labels: ["user-story"]
+
+body:
+  - type: textarea
+    id: story
+    attributes:
+      label: User Story
+      placeholder: As a [user], I want [action], so that [value]
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        Given...
+        When...
+        Then...
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
