@@ -14,21 +14,28 @@ beforeEach(() => {
   );
 });
 
-describe("JobApplication", () => {
-  test("object instantiation works", () => {
+describe("JobApplication class", () => {
+  test("test object instantiation", () => {
     expect(testApp).not.toBeUndefined();
   });
-  test("empty object instantiation works", () => {
+  test("test empty object instantiation works", () => {
     testApp = new JobApplication();
     expect(testApp).not.toBeUndefined();
   });
-  test("get Job Application attributes", () => {
+  test("test get Job Application attributes", () => {
     expect(testApp.company).toBe("JobSpank");
     expect(testApp.position).toBe("Business Development Representative");
     expect(testApp.city).toBe("West Haven, CT");
     expect(testApp.pay).toBe("100k");
     expect(testApp.status).toBe(StatusEnum.Applied);
     expect(testApp.dateApplied).toEqual(new Temporal.PlainDate(2003, 6, 22));
+    expect(testApp.dateAppliedString).toEqual(
+      new Temporal.PlainDate(2003, 6, 22).toLocaleString(),
+    );
     expect(testApp.notes).toBe("Job should be super easy lol");
+  });
+  test("test empty object date string", () => {
+    testApp = new JobApplication();
+    expect(testApp.dateAppliedString).toBe("");
   });
 });

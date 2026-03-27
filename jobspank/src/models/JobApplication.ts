@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export enum StatusEnum {
   Applied = "applied",
   Inactive = "inactive",
@@ -7,6 +9,7 @@ export enum StatusEnum {
 }
 
 export class JobApplication {
+  private _uuid: string;
   private _company: string;
   private _position: string;
   private _city: string;
@@ -35,6 +38,7 @@ export class JobApplication {
     dateApplied?: Temporal.PlainDate | null,
     notes?: string,
   ) {
+    this._uuid = uuidv4();
     this._company = company ?? "";
     this._position = position ?? "";
     this._city = city ?? "";
@@ -43,7 +47,9 @@ export class JobApplication {
     this._dateApplied = dateApplied ?? null;
     this._notes = notes ?? "";
   }
-
+  get uuid(): string {
+    return this._uuid;
+  }
   get company(): string {
     return this._company;
   }
@@ -61,6 +67,13 @@ export class JobApplication {
   }
   get dateApplied(): Temporal.PlainDate | null {
     return this._dateApplied;
+  }
+  get dateAppliedString(): string {
+    if (this._dateApplied === null) {
+      return "";
+    } else {
+      return this._dateApplied.toLocaleString();
+    }
   }
   get notes(): string {
     return this._notes;

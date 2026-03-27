@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+table {
+  border-collapse: separate; /* allows rounding */
+  border-spacing: 0;
+  color: var(--light);
+}
+thead th {
+  background-color: var(--accent);
+  color: var(--light);
+  text-transform: uppercase;
+}
+th,
+td {
+  @apply px-2 py-2 md:text-start text-center lg:text-base sm:text-xs text-xs font-bold;
+}
+
+th:first-of-type {
+  @apply rounded-tl-lg;
+}
+th:last-of-type {
+  @apply rounded-tr-lg;
+}
+tr {
+  color: var(--dark);
+}
+
+tbody tr td:first-of-type {
+  border-left: solid var(--table-outline) 2px;
+}
+
+tbody tr td:last-of-type {
+  border-right: solid var(--table-outline) 2px;
+}
+
+tbody tr:last-of-type td {
+  border-bottom: solid var(--table-outline) 2px;
+}
+
+tbody tr:last-of-type td:first-of-type {
+  @apply rounded-bl-lg;
+}
+
+tbody tr:last-of-type td:last-of-type {
+  @apply rounded-br-lg;
+}
+
+tbody tr:nth-of-type(odd) {
+  @apply bg-neutral-100;
+}

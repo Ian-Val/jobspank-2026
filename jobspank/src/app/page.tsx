@@ -1,5 +1,9 @@
-import Image from "next/image";
+import JobApplicationTable from "@/components/JobApplicationTable";
 
 export default function Home() {
-  return <div>Hello JobSpank</div>;
+  return (
+    <div className="mx-auto mt-10 px-10">
+      <JobApplicationTable />
+    </div>
+  );
 }
